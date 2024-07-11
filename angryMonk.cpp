@@ -16,6 +16,7 @@ int main(){
         for(int i=1;i<k;++i ){
             sum+=(num[i]+num[i]-1);
         }
+
         cout<<sum<<"\n";
     }
     return 0;

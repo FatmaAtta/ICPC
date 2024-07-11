@@ -21,6 +21,5 @@ int main(){
         int ans=a*b*c;
         cout<<ans<<"\n";
     }
-
     return 0;
 }
