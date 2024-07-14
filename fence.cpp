@@ -4,22 +4,23 @@ using namespace std;
 int main(){
     int n,k;
     cin>>n>>k;
-    vector<int>f(n),cf(n);
-    for(int i=0;i<n;++i){
-        cin>>f[i];
-    }
-    cf[0]=f[0];
-    for(int i=1;i<n;++i){
-        cf[i]=f[i]+cf[i-1];
-    }
-    int min=310;
-    int minIndex;
-    for(int i=k;i<=n;++i){
-        if(min > cf[i]-cf[i-k]){
-            min=cf[i]-cf[i-k];
-            minIndex=i-k+1;
+    int sum=0;
+    vector<int>num(n+1,0);
+    for(int i=1;i<=n;++i){
+        cin>>num[i];
+        if(i<=k){
+            sum+=num[i];
         }
     }
-    cout<<minIndex;
+    int min=sum;
+    int index=1;
+    for(int i=2;i<=n-k+1;++i){
+        sum=sum-num[i-1]+num[i+k-1];
+        if(min>sum){
+            min=sum;
+            index=i;
+        }
+    }
+    cout<<index;
     return 0;
 }
