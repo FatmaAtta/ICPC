@@ -12,12 +12,13 @@ int main(){
     for(int i=1;i<n;++i){
         cf[i]=f[i]+cf[i-1];
     }
-    int min=cf[k-1]-cf[0];
-    int minIndex=0;
-    for(int i=0;i+k<n;){
-        if(min> cf[i+k-1]-cf[i])
-            min=cf[i+k-1]-cf[i];
-        minIndex=i;
+    int min=310;
+    int minIndex;
+    for(int i=k;i<=n;++i){
+        if(min > cf[i]-cf[i-k]){
+            min=cf[i]-cf[i-k];
+            minIndex=i-k+1;
+        }
     }
     cout<<minIndex;
     return 0;
