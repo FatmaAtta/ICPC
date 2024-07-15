@@ -17,7 +17,7 @@ int main(){
     for(int j=2;j<=m;++j){
         cin>>l>>r>>d;
         for (int i = 1; i <= n; ++i) {
-            if(i>=l||i<=r){
+            if(i>=l&&i<=r){
                 cf[j][i] = cf[j-1][i]+d;
             }
             else{
